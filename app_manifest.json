@@ -1,0 +1,16 @@
+{
+  "SchemaVersion": 1,
+  "Name": "AzureSphereExp",
+  "JameiDoc":  "experiments in coding w/azure sphere.  basic manifest",
+  "ComponentId": "819255ff-8640-41fd-aea7-f85d34c491d5",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [ "0ne000680CF" ],
+  "Capabilities": {
+    "AllowedConnections": [ "iot-hub-jamie-experiment5.azure-devices.net", "global.azure-devices-provisioning.net" ],
+    "Gpio": [ 0, 8, 9, 10, 12, 15, 16, 17 ],
+    "Uart": [ ],
+    "WifiConfig": true,
+    "DeviceAuthentication": "d04ef76f-30dd-4782-8093-3928cd022ec8"
+  },
+  "ApplicationType": "Default"
+}
