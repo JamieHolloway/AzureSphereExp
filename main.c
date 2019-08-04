@@ -6,7 +6,6 @@
 #include <applibs/log.h>
 #include <applibs/gpio.h>
 #include "mt3620_rdb.h"
-#include "rgbled_utility.h"
 
 static const GPIO_Id ledsPins[3][3] = { {MT3620_RDB_LED1_RED, MT3620_RDB_LED1_GREEN, MT3620_RDB_LED1_BLUE}, {MT3620_RDB_LED2_RED, MT3620_RDB_LED2_GREEN, MT3620_RDB_LED2_BLUE}, {MT3620_RDB_LED3_RED, MT3620_RDB_LED3_GREEN, MT3620_RDB_LED3_BLUE} };
 
