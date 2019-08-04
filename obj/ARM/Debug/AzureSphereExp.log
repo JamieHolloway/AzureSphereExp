@@ -1,7 +1,13 @@
-﻿  Azure Sphere Utility version 19.5.4.53731
+﻿main.c(13,12): warning : 'led1Fd' defined but not used [-Wunused-variable]
+main.c(13,12): warning :  static int led1Fd = -1;
+main.c(13,12): warning :             ^~~~~~
+main.c(11,22): warning : 'ledsPins' defined but not used [-Wunused-const-variable=]
+main.c(11,22): warning :  static const GPIO_Id ledsPins[3][3] = { {MT3620_RDB_LED1_RED, MT3620_RDB_LED1_GREEN, MT3620_RDB_LED1_BLUE}, {MT3620_RDB_LED2_RED, MT3620_RDB_LED2_GREEN, MT3620_RDB_LED2_BLUE}, {MT3620_RDB_LED3_RED, MT3620_RDB_LED3_GREEN, MT3620_RDB_LED3_BLUE} };
+main.c(11,22): warning :                       ^~~~~~~~
+  Azure Sphere Utility version 19.5.4.53731
   Copyright (C) Microsoft Corporation. All rights reserved.
    
-  Start time (UTC): Saturday, 03 August 2019 20:42:36 
+  Start time (UTC): Sunday, 04 August 2019 00:55:33 
   verbose: Creating image package. 
   verbose: Azure Sphere application image package written. 
   verbose: Appending metadata. 
@@ -9,14 +15,14 @@
     Section: Identity
       Image Type:           Application
       Component ID:         819255ff-8640-41fd-aea7-f85d34c491d5
-      Image ID:             dea2b6f5-3eb1-4623-ab03-b2c74f5b765e
+      Image ID:             6fd11f00-0ed1-4b80-a2d6-d5a34ea03f62
     Section: Signature
       Signing Type:         ECDsa256
       Cert:                 a8d5cc6958f48710140d7a26160fc1cfc31f5df0
     Section: Debug
       Image Name:           AzureSphereExp
-      Built On (UTC):       8/3/2019 8:42:37 PM
-      Built On (Local):     8/3/2019 1:42:37 PM
+      Built On (UTC):       8/4/2019 12:55:34 AM
+      Built On (Local):     8/3/2019 5:55:34 PM
     Section: Temporary Image
       Remove image at boot: False
       Under development:    True
@@ -25,4 +31,4 @@
    
   verbose: Packaging completed successfully. 
   verbose: Output file is at: C:\src\AzureSphereExp\bin\ARM\Debug\AzureSphereExp.imagepackage 
-  Command completed successfully in 00:00:00.6742491. 
+  Command completed successfully in 00:00:00.5971162. 

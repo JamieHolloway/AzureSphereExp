@@ -19,5 +19,19 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="rgbled_utility.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mt3620_rdb.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="applibs_versions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rgbled_utility.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

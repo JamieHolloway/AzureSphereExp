@@ -47,9 +47,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="rgbled_utility.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app_manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="applibs_versions.h" />
+    <ClInclude Include="mt3620_rdb.h" />
+    <ClInclude Include="rgbled_utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
