@@ -19,6 +19,9 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="helpers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mt3620_rdb.h">
@@ -27,5 +30,6 @@
     <ClInclude Include="applibs_versions.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="helpers.h" />
   </ItemGroup>
 </Project>
