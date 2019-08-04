@@ -22,6 +22,9 @@
     <ClCompile Include="helpers.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="epoll_timerfd_utilities.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mt3620_rdb.h">
@@ -31,5 +34,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="helpers.h" />
+    <ClInclude Include="epoll_timerfd_utilities.h" />
   </ItemGroup>
 </Project>
