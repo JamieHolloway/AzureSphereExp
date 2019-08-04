@@ -43,4 +43,6 @@ static int Init(void)
 
 	led1BlueFd = GPIO_OpenAsOutput(MT3620_RDB_LED1_BLUE, GPIO_OutputMode_PushPull, GPIO_Value_High);
 	if (led1BlueFd < 0) { Log_Debug("Error opening GPIO: %s (%d).\n", strerror(errno), errno); return -1; }
+
+	return 0;
 }
