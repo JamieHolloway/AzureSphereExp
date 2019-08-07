@@ -2,8 +2,8 @@ c:\src\azuresphereexp\bin\arm\debug\azuresphereexp.out
 c:\src\azuresphereexp\bin\arm\debug\approotazuresphereexp\app_manifest.json
 c:\src\azuresphereexp\bin\arm\debug\approotazuresphereexp\bin\app
 c:\src\azuresphereexp\bin\arm\debug\azuresphereexp.imagepackage
-c:\src\azuresphereexp\obj\arm\debug\helpers.o
 c:\src\azuresphereexp\obj\arm\debug\main.o
+c:\src\azuresphereexp\obj\arm\debug\helpers.o
 c:\src\azuresphereexp\obj\arm\debug\azuresphereexp.tlog\arm-poky-linux-musleabi-gcc.command.1.tlog
 c:\src\azuresphereexp\obj\arm\debug\azuresphereexp.tlog\arm-poky-linux-musleabi-gcc.read.1.tlog
 c:\src\azuresphereexp\obj\arm\debug\azuresphereexp.tlog\arm-poky-linux-musleabi-gcc.write.1.tlog

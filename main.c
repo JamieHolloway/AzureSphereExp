@@ -6,13 +6,21 @@
 #include <applibs/log.h>
 #include <applibs/gpio.h>
 #include "mt3620_rdb.h"
+#include "epoll_timerfd_utilities.h"
 #include "helpers.h"
 
-int led1GreenFd = 0;
-int led1BlueFd = 0;
+static int epollFd = -1;
+void ButtonPollTimerEventHandler(EventData* eventData);
+static EventData buttonPollEventData = { .eventHandler = &ButtonPollTimerEventHandler };
+static int buttonGpioFd = -1;
+static int buttonPollTimerFd = -1;
+GPIO_Value_Type buttonState = GPIO_Value_High;
+static int led1GreenFd = -1;
+static int led1BlueFd = -1;
 const struct timespec sleepTime = { 2, 0 };
 
 static int Init(void);
+static int CloseDown(void);
 
 int main(void)
 {
@@ -28,8 +36,15 @@ int main(void)
 		GPIO_SetValue(led1BlueFd, GPIO_Value_Low);
 		GPIO_SetValue(led1GreenFd, GPIO_Value_High);
 		nanosleep(&sleepTime, NULL);
+
+		if (WaitForEventAndCallHandler(epollFd) != 0) Log_Debug("timer event\n");
+
+		if (IsButtonPressed(buttonGpioFd, &buttonState)) { Log_Debug("button pressed\n"); }
 	}
-	return 1;
+
+	CloseDown();
+
+	return 0;
 }
 
 static int Init(void)
@@ -38,6 +53,15 @@ static int Init(void)
 
 	DebugPrintCurrentlyConnectedWiFiNetwork();
 
+	epollFd = CreateEpollFd(); 
+	if (epollFd < 0) { Log_Debug("Failed to create epollFd\n"); return -1; }
+
+	if (!OpenGpioFdAsInput(MT3620_RDB_BUTTON_A, &buttonGpioFd)) { Log_Debug("Error opening button A.\n"); return -1; }
+
+	struct timespec buttonPressCheckPeriod = { 0, 1000000 };
+	buttonPollTimerFd = CreateTimerFdAndAddToEpoll(epollFd, &buttonPressCheckPeriod, &buttonPollEventData, EPOLLIN);
+	if (buttonPollTimerFd < 0) { Log_Debug("Error creating buttonPollTimerFd.\n"); return -1; }
+
 	led1GreenFd = GPIO_OpenAsOutput(MT3620_RDB_LED1_GREEN, GPIO_OutputMode_PushPull, GPIO_Value_High);
 	if (led1GreenFd < 0) { Log_Debug("Error opening GPIO: %s (%d).\n", strerror(errno), errno); return -1; }
 
@@ -45,4 +69,18 @@ static int Init(void)
 	if (led1BlueFd < 0) { Log_Debug("Error opening GPIO: %s (%d).\n", strerror(errno), errno); return -1; }
 
 	return 0;
+}
+
+static int CloseDown()
+{
+	if (buttonPollTimerFd >= 0) close(buttonPollTimerFd);
+	if (led1GreenFd >= 0) close(led1GreenFd);
+	if (led1BlueFd >= 0) close(led1BlueFd);
+	if (epollFd >= 0) close(epollFd);
+}
+
+void ButtonPollTimerEventHandler(EventData* eventData)
+{
+	if (ConsumeTimerFdEvent(buttonPollTimerFd) != 0) { Log_Debug("Error in ButtonPollTimerEventHandler.\n"); return; }
+	Log_Debug("ButtonPollTimeEventHandler reached.\n");
 }
