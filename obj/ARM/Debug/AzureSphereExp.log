@@ -1,7 +1,11 @@
-﻿  Azure Sphere Utility version 19.5.4.53731
+﻿  In function 'CloseDown':
+main.c(80,1): warning : no return statement in function returning non-void [-Wreturn-type]
+main.c(80,1): warning :  }
+main.c(80,1): warning :  ^
+  Azure Sphere Utility version 19.5.4.53731
   Copyright (C) Microsoft Corporation. All rights reserved.
    
-  Start time (UTC): Wednesday, 07 August 2019 04:04:53 
+  Start time (UTC): Sunday, 11 August 2019 02:47:46 
   verbose: Creating image package. 
   verbose: Azure Sphere application image package written. 
   verbose: Appending metadata. 
@@ -9,14 +13,14 @@
     Section: Identity
       Image Type:           Application
       Component ID:         819255ff-8640-41fd-aea7-f85d34c491d5
-      Image ID:             5d2359bf-a026-4e87-8e03-01fea66414f0
+      Image ID:             c74b2080-bceb-44c1-8743-2aa88348836a
     Section: Signature
       Signing Type:         ECDsa256
       Cert:                 a8d5cc6958f48710140d7a26160fc1cfc31f5df0
     Section: Debug
       Image Name:           AzureSphereExp
-      Built On (UTC):       8/7/2019 4:04:54 AM
-      Built On (Local):     8/6/2019 9:04:54 PM
+      Built On (UTC):       8/11/2019 2:47:47 AM
+      Built On (Local):     8/10/2019 7:47:47 PM
     Section: Temporary Image
       Remove image at boot: False
       Under development:    True
@@ -25,4 +29,4 @@
    
   verbose: Packaging completed successfully. 
   verbose: Output file is at: C:\src\AzureSphereExp\bin\ARM\Debug\AzureSphereExp.imagepackage 
-  Command completed successfully in 00:00:00.7647865. 
+  Command completed successfully in 00:00:00.5889908. 
